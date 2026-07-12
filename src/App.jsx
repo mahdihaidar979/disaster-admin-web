@@ -8,7 +8,6 @@ import Broadcast from "./pages/Broadcast";
 import EmergencyCenters from "./pages/EmergencyCenters";
 import LiveUsersMap from "./pages/LiveUsersMap";
 import AdminLogs from "./pages/AdminLogs";
-import CommunityChat from "./pages/CommunityChat";
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("adminToken");
@@ -44,7 +43,6 @@ function AdminLayout({ children }) {
           <NavLink className="admin-link" to="/emergency-centers">Emergency Centers</NavLink>
           <NavLink className="admin-link" to="/admin-logs">Admin Logs</NavLink>
           <NavLink className="admin-link admin-link-danger" to="/broadcast">Broadcast</NavLink>
-          <NavLink className="admin-link" to="/communitychat">Community Chat</NavLink>
         
 
           <button className="admin-logout" onClick={logout}>
@@ -73,7 +71,6 @@ export default function App() {
         <Route path="/emergency-centers" element={<ProtectedRoute><AdminLayout><EmergencyCenters /></AdminLayout></ProtectedRoute>} />
         <Route path="/admin-logs" element={<ProtectedRoute><AdminLayout><AdminLogs /></AdminLayout></ProtectedRoute>} />
         <Route path="/broadcast" element={<ProtectedRoute><AdminLayout><Broadcast /></AdminLayout></ProtectedRoute>} />
-        <Route path="/communitychat" element={<ProtectedRoute><AdminLayout><CommunityChat /></AdminLayout></ProtectedRoute>} />
 
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
