@@ -95,7 +95,6 @@ export default function MapPage() {
           ...alert,
           status: "Verified",
           userName: "Live Alert",
-          votesCount: 0,
         });
 
         setReports((prev) => {
@@ -114,7 +113,6 @@ export default function MapPage() {
           return [checkIn, ...prev];
         });
 
-        setLiveMessage("Safety check-in received live");
       },
     });
   }, []);
@@ -171,7 +169,6 @@ export default function MapPage() {
       latitude: report.latitude ?? report.Latitude ?? 0,
       longitude: report.longitude ?? report.Longitude ?? 0,
       imageUrl: report.imageUrl ?? report.ImageUrl,
-      votesCount: report.votesCount ?? report.VotesCount ?? 0,
     };
   };
 
@@ -354,7 +351,6 @@ export default function MapPage() {
       <div style={styles.page}>
         <div style={styles.bgOrbOne} />
         <div style={styles.bgOrbTwo} />
-        <StateBox icon="📍" title="Loading reports..." text="Fetching reports and safety check-ins." />
       </div>
     );
   }
@@ -369,7 +365,7 @@ export default function MapPage() {
           <div style={styles.eyebrow}>Live Disaster Intelligence</div>
           <h1 style={styles.title}>Live Reports Map</h1>
           <p style={styles.subtitle}>
-            View disaster reports, safety check-ins, severity, and status in real time.
+            View disaster reports, severity, and status in real time.
           </p>
 
           {liveMessage && (
@@ -390,7 +386,7 @@ export default function MapPage() {
         <div style={{ flex: 1 }}>
           <h2 style={styles.heroTitle}>Operational Map Center</h2>
           <p style={styles.heroText}>
-            Monitor disaster markers, safety check-ins, and urgent help requests across Lebanon.
+            Monitor disaster markers, and urgent help requests across Lebanon.
           </p>
         </div>
 
@@ -564,9 +560,6 @@ export default function MapPage() {
                     {selectedReport.userName || "Unknown"}
                   </InfoBox>
 
-                  <InfoBox label="Votes">
-                    {selectedReport.votesCount ?? 0}
-                  </InfoBox>
 
                   <InfoBox label="Location">
                     {Number(selectedReport.latitude).toFixed(4)},{" "}

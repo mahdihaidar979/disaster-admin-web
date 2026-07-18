@@ -49,7 +49,6 @@ export default function Dashboard() {
         const normalized = normalizeReport({
           ...alert,
           status: "Verified",
-          votesCount: 0,
           userName: "Live Alert",
         });
 
@@ -78,7 +77,6 @@ export default function Dashboard() {
       latitude: report.latitude ?? report.Latitude ?? 0,
       longitude: report.longitude ?? report.Longitude ?? 0,
       imageUrl: report.imageUrl ?? report.ImageUrl,
-      votesCount: report.votesCount ?? report.VotesCount ?? 0,
     };
   };
 
